@@ -1,23 +1,24 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormsModule, NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-new-task',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './new-task.component.html',
   styleUrl: './new-task.component.css'
 })
 export class NewTaskComponent {
-  title = "add title";
-  dueDate = "add date";
-  summary = "add summary";
   @Output() cancel = new EventEmitter<void>();
+  enteredTitle = '';
+  enteredSummary = '';
+  enteredDate = '';
 
   onCancel(){
     this.cancel.emit();
   }
 
-  onCreateButtonClick(){
+  onCreate(){
     this.cancel.emit();
   }
 }
